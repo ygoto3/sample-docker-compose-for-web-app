@@ -1,0 +1,15 @@
+{
+  "name": "node-express-sample",
+  "version": "1.0.0",
+  "description": "Sample express project",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yusuke Goto",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  }
+}

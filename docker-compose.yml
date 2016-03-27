@@ -1,0 +1,34 @@
+mysqldata:
+  image: busybox
+  volumes:
+    - /var/lib/mysql
+
+mysqld:
+  image: mysql
+  volumes_from:
+    - mysqldata
+  ports:
+    - 3306:3306
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+
+rails:
+  build: ./rails/
+  ports:
+    - 8080:3000
+  links:
+    - mysqld:mysqld
+  volumes:
+    - ${PWD}/rails:/app
+
+front:
+  build: ./front/
+  ports:
+    - 80:80
+  links:
+    - express
+
+express:
+  build: ./express
+  ports:
+    - 3000:3000
